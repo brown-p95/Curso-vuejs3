@@ -10,8 +10,20 @@
 <body>
     <div id="app">
         <h1>{{titulo}}</h1>
-        <h3>Mi Saldo es de: {{cantidad}}</h3>
+        <h2 v-if="estado">Cuenta activa</h2>
+        <h2 v-else="estado">Cuenta desactivada</h2>
+        <h3 v-if="cantidad>500">Mi Saldo es de:{{cantidad}}</h3>
+        <h3 v-else-if="cantidad <= 500 && cantidad > 0">Mi Saldo es <span style="color:red">{{cantidad}}</span>
+        </h3>
+        <h3 v-else="cantidad">Sin cantidad<span style=" color:red; background-color:yellow;">{{cantidad}}</span></h3>
         <a v-bind:href="enlace">ir al enlace</a>
+        
+        <h2>Servicios</h2>
+        <ul>
+            <li v-for="(item, index) in servicios" :key="index">{{index}}-{{item}}</li>
+        </ul>
+        <button v-on:click="agregar100()">Agregar 100</button>
+        <button v-on:click="quitar100()">Quitar 100</button>
 
 
     </div>
