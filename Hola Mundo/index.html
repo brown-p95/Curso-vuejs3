@@ -9,10 +9,16 @@
 </head>
 <body>
     <div id="app">
-
+        <h1>{{titulo}}</h1>
+        <h3>Mi Saldo es de: {{cantidad}}</h3>
+        <a v-bind:href="enlace">ir al enlace</a>
 
 
     </div>
     <script src="main.js"></script>
+    <script>
+    const mountedApp = app.mount('#app')
+    </script>
+    
 </body> 
 </html>
