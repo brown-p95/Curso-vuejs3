@@ -9,17 +9,22 @@
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
-    <div id="app">
-        <h1>{{titulo}}</h1>
+    <div id="app" text-center>
+        <h1>{{mayusculasTexto}}</h1>
         <h2 v-if="estado">Cuenta activa</h2>
         <h2 v-else="estado">Cuenta desactivada</h2>
         
-        <h3 v-if="cantidad>500">Mi Saldo es de:{{cantidad}}</h3>
+    <!--<h3 v-if="cantidad>500">Mi Saldo es de:{{cantidad}}</h3>
         <h3 v-else-if="cantidad <= 500 && cantidad > 0">Mi Saldo es <span style="color:red">{{cantidad}}</span>
         </h3>
         <h3 v-else="cantidad">Sin cantidad<span style=" color:red; background-color:yellow;">{{cantidad}}</span></h3>
         <a v-bind:href="enlace">ir al enlace</a>
-        
+    -->
+        <h3 
+            class="bg-dark"
+            :class="colorCantidad">
+            Mi Saldo es de:{{cantidad}}</h3>
+        <a v-bind:href="enlace">ir al enlace</a>
         <h2>Servicios</h2>
         <ul>
             <li v-for="(item, index) in servicios" :key="index">{{index}}-{{item}}</li>
@@ -30,6 +35,8 @@
         <hr><button @click="agregar10()">Agregar 10</button>
         <button v-on:click="quitar10()" :disabled="estadoboton">Quitar 10</button>
 
+        <div class="bg-dark py-3 text-white mt-2"><h2>Pie de pagina</h2> </div>
+        
     </div>
     <script src="main.js"></script>
     <script>
