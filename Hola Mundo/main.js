@@ -2,7 +2,13 @@ const app = Vue.createApp({
     data(){
         return {
             titulo:'Este es un Hola mundo desde vue.js',
-            cantidad: 100,
+            value: 100,
+            get cantidad() {
+                return this.value;
+            },
+            set cantidad(value) {
+                this.value = value;
+            },
             enlace: 'https://www.youtube.com/',
             estado: false,
             servicios: ['pagos','retiros','tranferencia','consulta'],
@@ -17,21 +23,21 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        quitar100(){
-            if(this.cantidad>100)
-            this.cantidad-=100;
+        subtraction100(){
+            if(this.value>100)
+            this.value-=100;
             else
             alert('no se puede quitar mas')
         },
-        agregar100(){
+        add100(){
             this.estadoboton=false;
-            this.cantidad+=100;
+            this.value+=100;
         },
-        quitar10(){
-            if(this.cantidad>10)
-            this.cantidad-=10;
-            else if(this.cantidad==10){
-            this.cantidad-=10;
+        subtraction10(){
+            if(this.value>10)
+            this.value-=10;
+            else if(this.value==10){
+            this.value-=10;
             alert('La Cuenta quedara en 0, no se puede descontar mas')
             this.estadoboton=true;
             return
@@ -39,8 +45,8 @@ const app = Vue.createApp({
             else
             alert('Cuenta en 0, no se puede descontar mas')
         },
-        agregar10(){
-            this.cantidad+=10;
+        add10(){
+            this.value+=10;
             this.estadoboton=false;
         },
         
