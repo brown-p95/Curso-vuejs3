@@ -3,22 +3,10 @@ const app = Vue.createApp({
         return {
             titulo:'Este es un Hola mundo desde vue.js',
             value: 100,
-            get cantidad() {
-                return this.value;
-            },
-            set cantidad(value) {
-                this.value = value;
-            },
             enlace: 'https://www.youtube.com/',
-            estado: false,
+            statusAccount: true,
             servicios: ['pagos','retiros','tranferencia','consulta'],
             statusbotonquitar: false,
-            get estadoboton() {
-                return this.statusbotonquitar;
-            },
-            set estadoboton(value) {
-                this.statusbotonquitar = value;
-            },
           
         }
     },
@@ -26,11 +14,17 @@ const app = Vue.createApp({
         subtraction100(){
             if(this.value>100)
             this.value-=100;
+            else if(this.value==100){
+            this.value-=100;
+            alert('La Cuenta quedara en 0, no se puede descontar mas')
+            this.statusbutton=true;
+            return
+            }
             else
-            alert('no se puede quitar mas')
+            alert('Cuenta en 0, no se puede descontar mas')
         },
         add100(){
-            this.estadoboton=false;
+            this.statusbutton=false;
             this.value+=100;
         },
         subtraction10(){
@@ -39,7 +33,7 @@ const app = Vue.createApp({
             else if(this.value==10){
             this.value-=10;
             alert('La Cuenta quedara en 0, no se puede descontar mas')
-            this.estadoboton=true;
+            this.statusbutton=true;
             return
             }
             else
@@ -47,18 +41,16 @@ const app = Vue.createApp({
         },
         add10(){
             this.value+=10;
-            this.estadoboton=false;
+            this.statusbutton=false;
         },
         
-        
-
     },
     computed: {
-        colorCantidad(){
+        colorAmount(){
             
             return this.cantidad>500?'text-success':'text-warning'
         },
-        mayusculasTexto(){
+        uppercaseText(){
             return this.titulo.toUpperCase()
         }
 

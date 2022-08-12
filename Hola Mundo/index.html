@@ -10,12 +10,12 @@
 </head>
 <body class="justify-content-center align-items-center">
     <div id="app"  class="col-auto" >
-        <h1>{{mayusculasTexto}}</h1>
-        <h2 v-if="estado">Cuenta activa</h2>
-        <h2 v-else="estado">Cuenta desactivada</h2>
+        <h1>{{uppercaseText}}</h1>
+        <h2 v-if="statusAccount">Cuenta activa</h2>
+        <h2 v-else="statusAccount">Cuenta desactivada</h2>
         <h3 
             class="bg-dark"
-            :class="colorCantidad">
+            :class="colorAmount">
             Mi Saldo es de:{{cantidad}}</h3>
         <a v-bind:href="enlace">ir al enlace</a>
         <h2>Servicios</h2>
@@ -23,10 +23,10 @@
             <li v-for="(item, index) in servicios" :key="index">{{index}}-{{item}}</li>
         </ul>
         <hr><button @click="add100()">Agregar 100</button>
-        <button v-on:click="subtraction100()">Quitar 100</button>
+        <button v-on:click="subtraction100() ":disabled="statusbutton">Quitar 100</button>
         
         <hr><button @click="add10()">Agregar 10</button>
-        <button v-on:click="subtraction10()" :disabled="estadoboton">Quitar 10</button>
+        <button v-on:click="subtraction10()" :disabled="statusbutton">Quitar 10</button>
         <footer-banco :amount="value" date="Agosto 2022"></footer-banco>
     </div>
     <script src="main.js"></script>
