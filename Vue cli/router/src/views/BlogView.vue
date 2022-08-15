@@ -1,10 +1,8 @@
 <template>
-  <div><TitleCom text="Hola a todos"/>
-  <button @click="consumirApi">consumir API</button>
-  <div v-for="item in arrayBlog" :key="item.id"></div>
-  <router-link :to="`/blog/:${item.id}`">
-  {{item.title}}
-  </router-link>
+  <TitleCom text="Hola a todos"/>
+  <!-- <button @click="consumirApi">Consumir API</button> -->
+  <div v-for="item in arrayBlog" :key="item.id">
+  <router-link :to="`/blog/${item.id}`">{{item.title}}</router-link>
   </div>
 </template>
 
