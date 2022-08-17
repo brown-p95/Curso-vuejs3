@@ -11,6 +11,12 @@ const classCounter = computed(() => {
     return 'negative'
   }
 })
+const bloqBtnAdd = computed(() => {
+  const numSearch = arrayNum.value.find((num) => num === count.value)
+  console.log(numSearch)
+  if (numSearch === 0) return true
+  return numSearch
+})
 const frutas = ['🍎', '🍌', '🍉', '🍓', '🍒']
 const arrayFrutas = [
   {
@@ -54,7 +60,6 @@ const resetClick = () => {
 }
 const addNumClick = () => {
   arrayNum.value.push(count.value)
-  this.aux++
   console.log('numero agregado a la lista')
 }
 </script>
@@ -67,18 +72,19 @@ const addNumClick = () => {
   <router-view/>
   <h1 :class="classCounter">{{count}}</h1>
   <div>Numeros Favoritos: {{arrayNum}}</div>
-  <ul><li v-for="(num, index) in arrayNum" :key="index">
+  <ul class="list-group mt-4"><li class="list-group-item" v-for="(num, index) in arrayNum" :key="index">
   {{num}}
   </li></ul>
-  <button v-on:click="incrementClick()">Increment</button>
-  <button v-on:click="decrementClick()">Decrement</button>
-  <button v-on:click="resetClick()">Reset</button>
-  <button @click="addNumClick">Agregar numero a lista</button>
-  <hr>
+  <div class="btn-group">
+  <button class="btn btn-success" v-on:click="incrementClick()">Increment</button>
+  <button class="btn btn-warning" v-on:click="decrementClick()">Decrement</button>
+  <button class="btn btn-danger" v-on:click="resetClick()">Reset</button>
+  <button class="btn btn-dark" @click="addNumClick()" :disabled="bloqBtnAdd">Agregar numero a lista</button>
   <button v-on:click="handleClick('Parametro 1','parametro2')">Activar</button>
-  <button @click.right="handleClick('activar 2','click Right')">Activar2</button>
-  <ul>
-    <li v-for="(fruta, index) in frutas" :key="fruta.value">
+  <button @click.right="handleClick('activar 2','click Right')">Activar2</button></div>
+
+  <ul class="list-group mt-4">
+    <li class="list-group-item" v-for="(fruta, index) in frutas" :key="fruta.value">
     <h1>{{index}}{{ fruta }}</h1>
     </li></ul>
   <ul><li v-for="fruit in arrayFrutas" :key="fruit.value">
