@@ -1,14 +1,28 @@
 <script setup>
-import ContadorCom from '@/components/ContadorCom.vue'
-import BlogPost from '@/components/BlogPost.vue'
+import { ref } from 'vue'
+import BlogPost from '../components/BlogPost.vue'
+const posts = ref([])
+const miFavorito = ref('')
+const fijarFavorito = (title) => {
+  miFavorito.value = title
+}
+
+fetch('https://jsonplaceholder.typicode.com/posts')
+  .then((res) => res.json())
+  .then((data) => (posts.value = data))
 </script>
 <template>
-<div class="Container">
-<ContadorCom/>
-<ContadorCom/>
-<ContadorCom/>
-<BlogPost title="Prueba" text="fesa" colorText="info" @cambiarFavoritoNombre="cambiarFavorito"/>
-<BlogPost title="Prueba2" text="2" colorText="warning" @cambiarFavoritoNombre="cambiarFavorito"/>
-<BlogPost title="titulo" text="text" colorText="danger" @cambiarFavoritoNombre="cambiarFavorito"/>
-</div>
+    <div class="container">
+        <h1>{{ miFavorito || "Sin favorito" }}</h1>
+          <div>
+            <BlogPost
+                v-for="post in posts"
+                :key="post.title"
+                :title="post.title"
+                :id="post.id"
+                :body="post.body"
+                class="mb-2"
+                @fijarFavorito="fijarFavorito"/>
+        </div>
+    </div>
 </template>

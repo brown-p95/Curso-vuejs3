@@ -1,20 +1,26 @@
 <script setup>
-// eslint-disable-next-line no-undef
-defineProps(['title', 'text', 'colorText'])
-
+import { defineProps, defineEmits } from 'vue'
+defineProps({
+  title: String,
+  id: Number,
+  body: {
+    type: String,
+    default: 'Sin descripción'
+  }
+})
+const emit = defineEmits(['fijarFavorito'])
 </script>
 <template>
-<h2>Favorito</h2>
-<div class="card">
-    <div class="card-body" >
-        <h1 class="card-title" :class="`text-${colorText} bg-secondary`" >
-        {{title}}
-        </h1>
-        <h5 class="card-text">{{text}}</h5>
-        <button @click="$emit('cambiarFavorito', title)" class="btn btn-outline-primary "> F{{favorito}}</button>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ title }}</h5>
+            <p>{{ body }}</p>
+            <button
+                class="btn btn-sm btn-outline-primary"
+                @click="emit('fijarFavorito', title)"
+            >
+                Mi Favorito
+            </button>
+        </div>
     </div>
-</div>
 </template>
-<style>
-
-</style>
