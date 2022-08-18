@@ -1,8 +1,10 @@
+<script></script>
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/Seccion3">Seccion3</router-link> |
+    <router-link to="/Seccion4">Seccion4</router-link> |
     <router-link to="/blog">Blog</router-link>
     </nav>
   <router-view/>
