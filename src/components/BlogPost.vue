@@ -13,7 +13,7 @@ const emit = defineEmits(['fijarFavorito'])
 <template>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">{{ title }}</h5>
+            <h5 class="card-title">{{id}} - {{ title }}</h5>
             <p>{{ body }}</p>
             <button
                 class="btn btn-sm btn-outline-primary"
