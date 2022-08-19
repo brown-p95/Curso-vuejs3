@@ -1,14 +1,22 @@
 <script></script>
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/Seccion3">Seccion3</router-link> |
-    <router-link to="/Seccion4">Seccion4</router-link> |
-    <router-link to="/blog">Blog</router-link>
-    </nav>
-  <router-view/>
-  <h1 :class="classCounter">{{count}}</h1>
+<nav class="navbar bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <router-link clas="navbar-brand" to="/pokemons">
+      <img src="@/assets/logo.png" alt="" width="30" height="24">
+      </router-link>
+    </a>
+    PokeAPI
+    <router-link active-class="active" class="btn btn-outline-primary" to="/">Home</router-link>
+    <router-link active-class="active" class="btn btn-outline-primary" to="/about">About</router-link>
+    <router-link active-class="active" class="btn btn-outline-primary" to="/pokemons">Pokemons</router-link>
+    <router-link active-class="active" class="btn btn-outline-primary" to="/blog">Blog</router-link>
+    <router-link active-class="active" class="btn btn-outline-primary" to="/seccion3">Seccion3</router-link>
+    <router-link active-class="active" class="btn btn-outline-primary" to="/seccion4">Seccion4</router-link>
+    </div>
+</nav>
+<router-view/>
 </template>
 <style>
 #app {
