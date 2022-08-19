@@ -2,7 +2,7 @@
 <template>
 <nav class="navbar bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar bg-dark" href="#">
       <router-link clas="navbar-brand" to="/pokemons">
       <img src="@/assets/logo.png" alt="" width="30" height="24">
       </router-link>
@@ -16,7 +16,9 @@
     <router-link active-class="active" class="btn btn-outline-primary" to="/seccion4">Seccion4</router-link>
     </div>
 </nav>
+<div class="container-sm text-center">
 <router-view/>
+</div>
 </template>
 <style>
 #app {

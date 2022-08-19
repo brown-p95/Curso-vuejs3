@@ -1,5 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { createPinia } from 'pinia'
+import { app } from 'vue'
+const pinia = createPinia()
+app.use(pinia)
 
 const routes = [
   {

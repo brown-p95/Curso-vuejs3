@@ -24,14 +24,14 @@ getData('https://pokeapi.co/api/v2/pokemon')
             <button
                 class="btn btn-outline-danger me-2"
                 @click="getData(data.previous)"
-                :disabled="data.previous === null"
+                :disabled="!data.previous === null"
             >
                 Previous
             </button>
             <button
                 class="btn btn-outline-primary"
                 @click="getData(data.next)"
-                :disabled="data.next === null"
+                :disabled="!data.next === null"
             >
                 Next
             </button>
