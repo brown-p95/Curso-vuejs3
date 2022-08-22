@@ -18,20 +18,36 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/BlogView.vue')
   },
   {
-    path: '/seccion3',
-    name: 'seccion3',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Seccion3View.vue')
-  },
-  {
-    path: '/seccion4',
-    name: 'seccion4',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Seccion4View.vue')
-  },
-  {
     path: '/blog/:id',
     name: 'article',
     component: () => import(/* webpackChunkName: "about" */ '../views/ArticleView.vue')
+  },
+  {
+    path: '/pokemons/',
+    name: 'Pokemons',
+    component: () => import(/* webpackChunkName: "about" */ '../views/PokemonsView.vue')
+  },
+  {
+    path: '/pokemons/:name',
+    name: 'Pokemon',
+    component: () => import(/* webpackChunkName: "about" */ '../views/PokeView.vue')
+  },
+  {
+    path: '/seccion3/',
+    name: 'Seccion3 ',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Seccion3View.vue')
+  },
+  {
+    path: '/seccion4/',
+    name: 'Seccion4',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Seccion4View.vue')
+  },
+  {
+    path: '/:pathMadch(.*)',
+    name: 'NotFound',
+    component: () => import(/* webpackChunkName: "about" */ '../views/NotFoundView.vue')
   }
+
 ]
 
 const router = createRouter({
